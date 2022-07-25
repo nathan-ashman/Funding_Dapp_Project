@@ -3,8 +3,7 @@ function GuestHome() {
         <div>
             test
         </div>
-    )
+    );
 }
-
 
 export default GuestHome;
