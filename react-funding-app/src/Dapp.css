@@ -25,6 +25,16 @@
     margin-bottom: 20px;
   }
 
+  #guest-img {
+    /* display: inline-flex; */
+    height: 440px;
+
+  }
+
+  #welcome-text {
+    display: flex;
+    align-items: center;
+  }
  
 
   
