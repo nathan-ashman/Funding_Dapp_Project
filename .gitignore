@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/react-funding-app/node_modules
 /.pnp
 .pnp.js
 
