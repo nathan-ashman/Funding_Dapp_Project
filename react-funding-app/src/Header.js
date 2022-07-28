@@ -1,5 +1,7 @@
+import Button from 'react-bootstrap/Button'
+
 function Header() {
-    return(
+    return (
         <nav class="navbar navbar-expand-lg navbar-dark static-top dapp-header">
             <div class="container">
                 <a class="navbar-brand" href="#">
@@ -9,23 +11,30 @@ function Header() {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a 
-                                class="nav-link active dapp-links" 
-                                aria-current="page" 
-                                href="/"
+                            <Button
+                            as="a"  
+                            className="nav-link dapp-links" 
+                            href="/"
                             >
                                 Home
-                            </a>
+                            </Button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dapp-links" href="/register">
+                            <Button 
+                            as="a"
+                            class="nav-link dapp-links" 
+                            href="/register">
                                 Register
-                            </a>
+                            </Button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dapp-links" href="/login">
+                            <Button
+                            as="a" 
+                            class="nav-link dapp-links" 
+                            href="/login"
+                            >
                                 Login
-                            </a>
+                            </Button>
                         </li>
                     </ul>
                 </div>

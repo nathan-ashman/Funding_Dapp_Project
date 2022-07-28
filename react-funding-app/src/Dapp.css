@@ -1,10 +1,11 @@
 .dapp-header {
-    /* background-color: rgb(194, 250, 176); */
     background-color: rgb(194, 250, 176);
-} 
+}
+
 .dapp-links {
     color: rgb(152, 28, 224);
 }
+
 .company {
     color: rgb(152, 28, 224);
     padding-left: 10px;
