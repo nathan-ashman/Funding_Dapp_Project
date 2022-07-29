@@ -1,7 +1,12 @@
 function GuestHome() {
     return(
-        <div>
+        <div onLoad={()=>{
+            if(window.localStorage["JSON"] !== null && window.localStorage["JSON"] !== undefined){
+                document.querySelector("#login-success-info").style.display = "block";
+            }
+        }}>
             <div class="row">
+                <div class="alert alert-success" id="login-success-info">Successfully accessed wallet.</div>
                 <div class="col">
                     <img id="guest-img" class="rounded float-left" src="https://tinyurl.com/2p8fw6nb" alt="" />
                 </div>
