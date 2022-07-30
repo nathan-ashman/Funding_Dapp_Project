@@ -1,8 +1,8 @@
 function GuestHome() {
     return(
-        <div>
-            test
-        </div>
+        <h1>
+            Guest Home Page
+        </h1>
     );
 }
 
