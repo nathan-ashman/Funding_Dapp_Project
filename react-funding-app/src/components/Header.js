@@ -1,8 +1,11 @@
-import Link from './Link';
+import Link from './Link/Link';
+import Navbar from 'react-bootstrap/Navbar';
 
 const Header = ({ navLinks }) => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark static-top dapp-header">
+        <Navbar fixed='top' style={{ backgroundColor: rgb(194, 250, 176) }} />
+        
+        /* <nav className="navbar navbar-expand-lg navbar-dark static-top dapp-header">
             <div className="container">
                 <a className="navbar-brand" href="/">
                     <img src="./purple-moon-logo.webp" alt="..." height="36" />
@@ -25,7 +28,7 @@ const Header = ({ navLinks }) => {
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> */
     );
 }
 

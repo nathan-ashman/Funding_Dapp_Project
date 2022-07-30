@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import './App.css';
 import './Dapp.css';
 import './components/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
 
 function App() {
     const guestLinks = [
@@ -25,15 +27,15 @@ function App() {
 
     return (
         <div className="App">
-            <div className="container-fluid">
+            <Container>
                 <Header navLinks={navLinks} />
                 <Routes>
                     <Route path="/" element={<GuestHome />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
                 </Routes>
-            </div>
-        </div>
+            </Container>
+        </div >
     );
 }
 
