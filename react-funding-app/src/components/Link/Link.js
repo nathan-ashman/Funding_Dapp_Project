@@ -4,7 +4,7 @@ import classes from './Link.module.css';
 const Link = ({ name, url }) => {
     return (
         <li className="nav-item">
-            <A className='nav-link' to={`/${url}`}>
+            <A className='nav-link dapp-links' to={`/${url}`}>
                 {name}
             </A>
         </li>

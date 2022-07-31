@@ -1,3 +1,16 @@
+.dapp-links {
+    color: rgb(152, 28, 224);
+}
+
+.navBar {
+    background-color: rgb(194, 250, 176);
+}
+
+.companyLogo {
+    color: rgb(152, 28, 224);
+    padding-left: 10px;
+}
+
 .reg-login-form {
     margin-top: 80px;
     margin-right: 200px;

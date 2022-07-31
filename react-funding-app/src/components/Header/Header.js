@@ -2,6 +2,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import classes from './Header.module.css';
+import Link from '../Link/Link';
 
 const Header = ({ navLinks }) => {
     return (
@@ -12,7 +13,7 @@ const Header = ({ navLinks }) => {
                     <span className={classes.companyLogo}>AshFund</span>
                 </Navbar.Brand>
                 <Navbar.Collapse id="navbarSupportedContent">
-                    <Nav>
+                    <Nav className="ms-auto">
                         <Nav.Item>
                             <Nav.Link href="/register" style={{ color: 'rgb(152, 28, 224)' }}>
                                 Register
@@ -28,11 +29,11 @@ const Header = ({ navLinks }) => {
             </Container>
         </Navbar>
         
-        /* <nav className="navbar navbar-expand-lg navbar-dark static-top dapp-header">
+        /* <nav className="navbar navbar-expand-lg navbar-dark static-top dapp-header navBar">
             <div className="container">
                 <a className="navbar-brand" href="/">
                     <img src="./purple-moon-logo.webp" alt="..." height="36" />
-                    <span className="company">AshFund</span>
+                    <span className="companyLogo">AshFund</span>
                 </a>
                 <div 
                     className="collapse navbar-collapse" 
