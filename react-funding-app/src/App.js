@@ -4,19 +4,23 @@ import './Header';
 import Header from './Header';
 import {Routes} from 'react-router-dom';
 import {Route} from 'react-router-dom';
-import GuestHome from './GuestHome';
 import Register from './Register';
 import Login from './Login';
-function App() {
-  return (
+import HomePage from './HomePage';
+import CreateCampaign from './CreateCampaign';
 
+function App() {
+    return (
     <div className="App">
       <div className="container-fluid">
         <Header />
         <Routes>
-          <Route path="/" element={<GuestHome/>}/>
+          <Route path="/" element={<HomePage/>}/>
+          {/* <Route path="/home" element={<AuthHome/>}/> */}
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
+          <Route path="/create-campaign" element={<CreateCampaign/>}/>
+          {/* <Route path="/logout"/> */}
         </Routes>
       </div>
     </div>

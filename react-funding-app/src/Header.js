@@ -1,5 +1,11 @@
+import {useCookies} from 'react-cookie';
+import { useNavigate } from "react-router-dom";
+
+
 function Header() {
-    
+  const [, , removeCookie] = useCookies(['userCookie']);
+  let navigate = useNavigate();
+
     return(
         <nav class="navbar navbar-expand-lg navbar-dark static-top dapp-header">
         <div class="container">
@@ -18,6 +24,15 @@ function Header() {
               </li>
               <li class="nav-item">
                 <a class="nav-link dapp-links" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link dapp-links" href="/create-campaign">Create new campaign</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link dapp-links" href="" onClick={()=>{
+                  removeCookie("json");        
+                  navigate('/');
+                }}>Logout</a>
               </li>
             </ul>
           </div>
