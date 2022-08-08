@@ -8,19 +8,21 @@ import Register from './Register';
 import Login from './Login';
 import HomePage from './HomePage';
 import CreateCampaign from './CreateCampaign';
+import {useLocation} from 'react-router-dom';
+import Campaign from './Campaign';
 
 function App() {
+  
     return (
     <div className="App">
       <div className="container-fluid">
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage/>}/>
-          {/* <Route path="/home" element={<AuthHome/>}/> */}
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/create-campaign" element={<CreateCampaign/>}/>
-          {/* <Route path="/logout"/> */}
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/create-campaign" element={<CreateCampaign/>} />
+          <Route path="/campaign/:id"  element={<Campaign/>} />
         </Routes>
       </div>
     </div>

@@ -39,6 +39,7 @@ function Login() {
             //logging in
             
             let authWallet = ethers.Wallet.fromMnemonic(inputtedMnemonic);
+            console.log(authWallet);
             if(authWallet !== undefined){
                 // window.localStorage["JSON"] = JSON.stringify(authWallet);
                 setCookie('json', JSON.stringify(authWallet), { path: '/' });
@@ -65,9 +66,6 @@ function Login() {
             //     console.log(isValidEmail, isValidPassword);
             // }
         }}>Open my wallet</button>
-            {/* <div className="text-center">
-                <a className="small" href="#">Forgot password?</a>
-            </div> */}
         </div>
 
     </div>

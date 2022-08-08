@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import {useLocation} from 'react-router-dom';
 
 function AuthHome() {
     let navigate = useNavigate();
-
+    let stateData = useLocation();
+    console.log(stateData);
     return(
         <div className="dapp-header" onLoad={()=>{
             if(window.localStorage["JSON"] !== null && window.localStorage["JSON"] !== undefined){

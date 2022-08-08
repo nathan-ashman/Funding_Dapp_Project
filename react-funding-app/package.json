@@ -13,6 +13,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "solc": "^0.8.15",
+    "truffle": "^5.5.25",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
