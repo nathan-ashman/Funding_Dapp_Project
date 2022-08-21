@@ -9,7 +9,7 @@ import Login from './Login';
 import HomePage from './HomePage';
 import CreateCampaign from './CreateCampaign';
 import {useLocation} from 'react-router-dom';
-import Campaign from './Campaign';
+import CampaignPage from './CampaignPage';
 
 function App() {
   
@@ -22,7 +22,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/create-campaign" element={<CreateCampaign/>} />
-          <Route path="/campaign/:id"  element={<Campaign/>} />
+          <Route path="/campaign/:id"  element={<CampaignPage/>} />
         </Routes>
       </div>
     </div>

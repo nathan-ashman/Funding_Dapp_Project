@@ -24,12 +24,12 @@ function Register() {
                     <h3 id="form-title">Create a new wallet</h3>
                 </div>
                 <div className="form-floating mb-3">                    
-                    <input type="password" className="form-control" id="floatingPassword" placeholder="Password" minlength="6" maxlength="8" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type="password" className="form-control" id="floatingPassword" placeholder="Password" minLength="6" maxLength="8" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <label htmlFor="floatingPassword">Password</label>
                 </div>
 
                 <div className="form-floating mb-3">
-                    <input type="password" className="form-control" id="repeatPassword" placeholder="Confirm Password" minlength="6" maxlength="8" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
+                    <input type="password" className="form-control" id="repeatPassword" placeholder="Confirm Password" minLength="6" maxLength="8" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
                     <label htmlFor="floatingPassword">Confirm Password</label>
                 </div>
 
@@ -55,8 +55,9 @@ function Register() {
                 } else {
                     let randNum = Math.random();
                     let randomWallet = ethers.Wallet.createRandom([password, randNum]);
-                    let mnemonic = randomWallet.mnemonic.phrase;
-                    mnemonicMsg.innerHTML += mnemonic;
+                    console.log(randomWallet);
+                    let mnemonic = randomWallet.signingKey.mnemonic;
+                    mnemonicMsg.innerHTML = mnemonic;
                     invalidMsg.style.display = "none";
                     mnemonicMsg.style.display = "block";
                 }

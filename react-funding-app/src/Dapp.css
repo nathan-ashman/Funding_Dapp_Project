@@ -1,4 +1,4 @@
-.dapp-header {
+.dapp-background {
     /* background-color: rgb(194, 250, 176); */
     background-color: rgb(194, 250, 176);
 } 
@@ -10,7 +10,7 @@
     padding-left: 10px;
 }
 
-.reg-login-form, .fundraiser-form {
+.reg-login-form, .fundraiser-form, #donate-section {
     margin-top: 80px;
     margin-right: 200px;
     margin-left: 200px;
@@ -18,7 +18,11 @@
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 100px;
-    padding-right: 100px; 
+    padding-right: 100px;
+  }
+
+  #donate-section {
+    margin-top: 80px;
   }
 
   #floatingInput {
@@ -40,3 +44,23 @@
     display: none;
   }
   
+  #donateField {
+    display: inline;
+    width: fit-content;
+  }
+
+  #donate-ether {
+      padding-top: 120px;
+      display: flex;
+      justify-content: left;
+  }
+
+
+  #campaign-type, #campaign-title {
+    display: flex;
+    justify-content: left;
+  }
+
+  #campaign-list {
+    list-style-type: none;
+  }

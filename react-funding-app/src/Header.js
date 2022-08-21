@@ -1,13 +1,20 @@
 import {useCookies} from 'react-cookie';
-import { useNavigate } from "react-router-dom";
-
+import GuestRoutes from './GuestRoutes';
+import AuthRoutes from './AuthRoutes';
+import React, {useState, useEffect} from 'react';
 
 function Header() {
-  const [, , removeCookie] = useCookies(['userCookie']);
-  let navigate = useNavigate();
+  const cookie = useCookies(['userCookie'])[0];
+  let [isLoggedIn, setLoginStatus] = useState(false);
+  function checkLoginStatus() {
+    if(cookie.json !== undefined) setLoginStatus(true);
+  }
+  useEffect(()=>{
+    checkLoginStatus();
+  }, [1])
 
-    return(
-        <nav class="navbar navbar-expand-lg navbar-dark static-top dapp-header">
+  return(
+        <nav class="navbar navbar-expand-lg navbar-dark static-top dapp-background">
         <div class="container">
           <a class="navbar-brand" href="#">
             <img src="./purple-moon-logo.webp" alt="..." height="36" />
@@ -19,21 +26,8 @@ function Header() {
               <li class="nav-item">
                 <a class="nav-link active dapp-links" aria-current="page" href="/">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link dapp-links" href="/register">Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link dapp-links" href="/login">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link dapp-links" href="/create-campaign">Create new campaign</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link dapp-links" href="" onClick={()=>{
-                  removeCookie("json");        
-                  navigate('/');
-                }}>Logout</a>
-              </li>
+              {isLoggedIn === true ? <AuthRoutes /> : <GuestRoutes />}              
+
             </ul>
           </div>
         </div>
