@@ -2,28 +2,28 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import classes from './Header.module.css';
-import Link from '../Link/Link';
+import NavItem from '../NavItem/NavItem';
+import Link from '../NavItem/NavItem';
 
 const Header = ({ navLinks }) => {
     return (
-        <Navbar fixed='top' style={{ backgroundColor: 'rgb(194, 250, 176)' }}>
-            <Container>
-                <Navbar.Brand href="/">
-                    <img src="./purple-moon-logo.webp" alt="..." height="36" />
+        <Navbar fixed='top'>
+            <Container style={{ backgroundColor: 'rgb(194, 250, 176)' }}>
+                <Navbar.Brand href='/'>
+                    <img src='./purple-moon-logo.webp' alt='...' height='36' />
                     <span className={classes.companyLogo}>AshFund</span>
                 </Navbar.Brand>
-                <Navbar.Collapse id="navbarSupportedContent">
-                    <Nav className="ms-auto">
-                        <Nav.Item>
-                            <Nav.Link href="/register" style={{ color: 'rgb(152, 28, 224)' }}>
-                                Register
-                            </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link href="/login" style={{ color: 'rgb(152, 28, 224)' }}>
-                                Log In
-                            </Nav.Link>
-                        </Nav.Item>
+                <Navbar.Collapse id='navbarSupportedContent'>
+                    <Nav className='ms-auto'>
+                        {navLinks.map((link, i) => {
+                            return (
+                                <NavItem 
+                                    key={i.toString()} 
+                                    name={link.name} 
+                                    url={link.url} 
+                                />
+                            );
+                        })}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
