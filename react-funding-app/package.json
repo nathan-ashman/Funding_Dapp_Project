@@ -7,6 +7,8 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.0",
+    "ipfs-http-client": "^57.0.3",
+    "mocha": "^10.0.0",
     "mongoose": "^6.5.0",
     "react": "^18.2.0",
     "react-cookie": "^4.1.1",
@@ -14,7 +16,9 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "solc": "^0.8.15",
+    "to-buffer": "^1.1.1",
     "truffle": "^5.5.25",
+    "truffle-plugin-verify": "^0.5.28",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -40,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "solidity-coverage": "^0.7.21"
   }
 }

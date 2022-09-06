@@ -10,7 +10,7 @@
     padding-left: 10px;
 }
 
-.reg-login-form, .fundraiser-form, #donate-section {
+.reg-login-form, .fundraiser-form, #donate-section, #faucet-section, #wallet-section {
     margin-top: 80px;
     margin-right: 200px;
     margin-left: 200px;
@@ -59,8 +59,36 @@
   #campaign-type, #campaign-title {
     display: flex;
     justify-content: left;
-  }
+    margin-top: 30px;
+  } 
 
-  #campaign-list {
+  #campaign-list, #faucet-links > li {
     list-style-type: none;
   }
+
+  #end-fundraiser-button {
+    /* display: block; */
+    margin-top: 80px;
+  }
+
+  #user-balance {
+    font-size: 15px;
+  }
+
+  #thumbnail-input {
+    font-size: 20px;
+    padding: 20px;
+  }
+
+  #select-thumbnail {
+    padding-left: 185px;
+  }
+
+  #campaign-creator {
+    padding-top: 80px;
+  }
+
+  #campaign-thumbnail {
+    height: 200px;
+  }
+

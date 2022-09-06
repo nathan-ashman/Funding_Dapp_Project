@@ -28,9 +28,9 @@
 	{
 		"inputs": [
 			{
-				"internalType": "string",
+				"internalType": "address",
 				"name": "sender",
-				"type": "string"
+				"type": "address"
 			},
 			{
 				"internalType": "string",
@@ -51,6 +51,11 @@
 				"internalType": "string",
 				"name": "_fundType",
 				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_thumbnail",
+				"type": "string"
 			}
 		],
 		"name": "makeCampaign",
@@ -66,25 +71,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"name": "campaignEtherRaised",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "uint256",
 				"name": "index",
 				"type": "uint256"
@@ -95,9 +81,9 @@
 			{
 				"components": [
 					{
-						"internalType": "string",
+						"internalType": "address",
 						"name": "creator",
-						"type": "string"
+						"type": "address"
 					},
 					{
 						"internalType": "string",
@@ -118,6 +104,16 @@
 						"internalType": "string",
 						"name": "fundType",
 						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "etherAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "thumbnail",
+						"type": "string"
 					}
 				],
 				"internalType": "struct Fundraiser.Campaign",
@@ -131,9 +127,9 @@
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
 			}
 		],
 		"name": "getEther",
@@ -154,9 +150,9 @@
 			{
 				"components": [
 					{
-						"internalType": "string",
+						"internalType": "address",
 						"name": "creator",
-						"type": "string"
+						"type": "address"
 					},
 					{
 						"internalType": "string",
@@ -176,6 +172,16 @@
 					{
 						"internalType": "string",
 						"name": "fundType",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "etherAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "thumbnail",
 						"type": "string"
 					}
 				],

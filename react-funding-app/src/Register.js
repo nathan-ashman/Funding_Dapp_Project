@@ -57,7 +57,7 @@ function Register() {
                     let randomWallet = ethers.Wallet.createRandom([password, randNum]);
                     console.log(randomWallet);
                     let mnemonic = randomWallet.signingKey.mnemonic;
-                    mnemonicMsg.innerHTML = mnemonic;
+                    mnemonicMsg.innerHTML = `Save your mnemonic to open your wallet: ${mnemonic}`;
                     invalidMsg.style.display = "none";
                     mnemonicMsg.style.display = "block";
                 }

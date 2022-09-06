@@ -43,7 +43,7 @@ function Login() {
             if(authWallet !== undefined){
                 // window.localStorage["JSON"] = JSON.stringify(authWallet);
                 setCookie('json', JSON.stringify(authWallet), { path: '/' });
-                navigate('/');
+                if(cookies.json){navigate('/faucet');}
             } else {
                 console.log("Unknown error.")    
             }
