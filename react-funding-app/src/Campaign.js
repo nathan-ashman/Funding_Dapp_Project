@@ -19,7 +19,7 @@ function Campaign(props) {
     let privateKey = sessionData.signingKey.privateKey;
     let walletSigner = new ethers.Wallet(privateKey, provider);
     let factory = new ethers.ContractFactory(contractABI, bytecode, walletSigner);
-    let contract = factory.attach("0x1B9Be7Cf4d80806bB15B3C005A04a5bF24c450E7");
+    let contract = factory.attach("0x5D845B188fC79c99e4E12dA3d51F1816b8Acc48F");
     let navigate = useNavigate();
     
     return(

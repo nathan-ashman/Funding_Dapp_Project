@@ -18,8 +18,9 @@ function AuthHome() {
     let [campaignList, setList] = useState('');
     let etherRaised;
     let getCampaignList = async ()=>{
-        contract = await factory.attach('0x1B9Be7Cf4d80806bB15B3C005A04a5bF24c450E7');
-        setList(await contract.getList());
+        contract = await factory.attach('0x5D845B188fC79c99e4E12dA3d51F1816b8Acc48F');
+        let fundList = await contract.getList();
+        setList(fundList.filter(f=>f[0] !== "0x0000000000000000000000000000000000000000"));
         console.log(campaignList);
     }
     useEffect(()=>{ 
@@ -27,16 +28,16 @@ function AuthHome() {
     }, [1]);
  
     return(
-        <div className="dapp-background" onLoad={()=>{
+        <div className="dapp-background" id="auth-home-page" onLoad={()=>{
             // if(window.localStorage["JSON"] !== null && window.localStorage["JSON"] !== undefined){
             //     document.querySelector("#login-success-info").style.display = "block";
             // } 
         }}>
-            {(!campaignList) ? <CampaignLoadout list={campaignList} /> : 
-                <>
+            {(campaignList.length > 0) ? <CampaignLoadout list={campaignList} /> : 
+                <div id="no-campaign-section">
                     <h2>There are no recent campaigns...</h2>
                     <button className="btn btn-info fw-bold mb-2" onClick={()=>navigate('/create-campaign')}>Create a new campaign</button>
-                </>
+                </div>
             }
             {/* <>
                 <h2>There are no recent campaigns...</h2>

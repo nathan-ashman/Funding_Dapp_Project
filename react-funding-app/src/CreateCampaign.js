@@ -25,7 +25,7 @@ function CreateCampaign() {
     return(
         
         <div className="fundraiser-form">
-            <div class="alert alert-success" id="create-campaign-success">Successfully made fundraiser! Please wait a few moments...</div>
+            <div class="alert alert-success" id="create-campaign-success"></div>
             <div class="alert alert-danger" id="create-campaign-error"></div>
             {/* <div class="alert alert-danger" id="invalid-info"></div> */}
             <h2>Create a New Fundraiser</h2>
@@ -64,12 +64,12 @@ function CreateCampaign() {
                     setThumbnail(url);
                 }}/>
                 
-            </div>
+            </div>  
 
             <div className="d-grid">
             <button className="btn btn-success btn-login text-uppercase fw-bold mb-2" type="submit" onClick={async ()=>{
-                let invalidMsg = document.querySelector("#login-invalid-info");
-                let successMsg = document.querySelector("#login-success-info");
+                let invalidMsg = document.querySelector("#create-campaign-error");
+                let successMsg = document.querySelector("#create-campaign-success");
                 let provider = ethers.getDefaultProvider("goerli");
                 let sessionData = cookie["json"];
                 let privateKey = sessionData.signingKey.privateKey;
@@ -77,18 +77,24 @@ function CreateCampaign() {
                 console.log(wallet);
                 let factory = new ethers.ContractFactory(contractABI, bytecode, wallet);
                 console.log(factory);
-                let contract = await factory.attach('0x1B9Be7Cf4d80806bB15B3C005A04a5bF24c450E7');
+                let contract = await factory.attach('0x5D845B188fC79c99e4E12dA3d51F1816b8Acc48F');
                 console.log(contract);
                 let arr = await contract.getList();
                 let oldIndex = arr.length-1;
                 await contract.makeCampaign(wallet.address, title, ethers.utils.parseEther(goal), ethers.utils.parseEther(maxDonation), fundraiserType, thumbnail).then(res=>{
                     console.log(res);
-                }, (err)=>{
-                    console.log(err.reason);
+                    let transactionHash = res.hash;
+                    let goerliEtherscanLink = `goerli.etherscan.io/tx/${transactionHash}`;
+                    console.log(goerliEtherscanLink);
+                    successMsg.style.display = "block";
+                    invalidMsg.style.display = "none";
+                    successMsg.innerHTML = `Transaction sent! View on etherscan: ${goerliEtherscanLink}`;
+                    //Successfully made fundraiser! View the transaction hash here: 
                 });
                 console.log(contract);
                 let newCampaign = await contract.getCampaign(oldIndex+1);
-                if(contract && arr.length > 0 && newCampaign !== undefined){
+                console.log(newCampaign);
+                if(newCampaign !== undefined){
                     navigate(`/campaign/${arr.length-1}`);
                 }
 

@@ -9,11 +9,9 @@ contract Fundraiser {
         string fundType;
         uint etherAmount;
         string thumbnail;
-        // bool isEnded;
     }
     Campaign[] campaignArr;
 
-    // uint public etherCollected = 0 ether;
     address public owner;
     constructor() {
         owner = msg.sender;
@@ -35,11 +33,10 @@ contract Fundraiser {
     }
 
     function endFundraiser(uint index) public payable {
-        require(isGoalReached(index) == true);
         Campaign memory pulledCampaign = campaignArr[index];
         address _creator = pulledCampaign.creator;
         payable(_creator).transfer(pulledCampaign.etherAmount);
-        selfdestruct(payable(_creator));
+        delete campaignArr[index];
     }
 
     function getList() public view returns (Campaign[] memory) {

@@ -37,9 +37,9 @@ function Campaign() {
     
     let [contract, setContract] = useState('');
     let initializePage = async ()=>{
-        let initializedContract = await factory.attach('0x1B9Be7Cf4d80806bB15B3C005A04a5bF24c450E7');
+        let initializedContract = await factory.attach('0x5D845B188fC79c99e4E12dA3d51F1816b8Acc48F');
         
-        let bal = await provider.getBalance("0x1B9Be7Cf4d80806bB15B3C005A04a5bF24c450E7");
+        let bal = await provider.getBalance("0x5D845B188fC79c99e4E12dA3d51F1816b8Acc48F");
         console.log(Number(bal));
         currCampaign = await initializedContract.getCampaign(indexOfCampaign); //0x42e47FE05B07A65880aa7b0452BDC4F6Da58ba28
         setCreator(currCampaign[0]);
@@ -70,14 +70,13 @@ function Campaign() {
     }, [1]);
     return(
         (contract !== '') ? (<div className="card" id="donate-section">
-        <div class="alert alert-success" id="login-success-info">Successfully accessed wallet.</div>
-        <div class="alert alert-danger" id="login-incorrect-info">The mnemonic entered is incorrect. Please try another mnemonic, or if you don't have an account, <a href="/register">create a new wallet.</a></div>
-        <div class="alert alert-danger" id="invalid-info"></div>
+        <div class="alert alert-success" id="campaign-donate-success"></div>
+        <div class="alert alert-danger" id="campaign-donate-error"></div>
         <div className="card-body">
+            <img id="campaign-thumbnail" src={image} />
             <h2 id="campaign-title">
                 {title}
             </h2>
-            <img id="campaign-thumbnail" src={image} />
             <h3 id="campaign-type">
                 {type}
             </h3>
@@ -89,11 +88,21 @@ function Campaign() {
             
             <div id="donate-ether">
                 <button className="btn btn-success btn-login text-uppercase fw-bold mb-2" onClick={async ()=>{
+                    let successMsg = document.querySelector("#campaign-donate-success");
+                    let errorMsg = document.querySelector("#campaign-donate-error");
                     if(contract && ether >= 0 && ether <= max){
                         console.log(contract); //contract exists.
                         console.log(wallet.address); //wallet address is valid. check for transactions at that address.
                         await contract.donate(indexOfCampaign, {
                             value: ethers.utils.parseEther(`${ether}`)
+                        }).then((res)=>{
+                            let transactionHash = res.hash;
+                            let goerliEtherscanLink = `goerli.etherscan.io/tx/${transactionHash}`;
+                            console.log(goerliEtherscanLink);
+                            successMsg.style.display = "block";
+                            successMsg.innerHTML = `Transaction sent! View on etherscan: ${goerliEtherscanLink}`;
+                            errorMsg.style.display = "none";
+                            //Successfully made fundraiser! View the transaction hash here: 
                         })
                     }
                 }}>Donate</button>
@@ -103,6 +112,7 @@ function Campaign() {
             {(wallet.address === creator) ? <button id="end-fundraiser-button" className="btn btn-danger btn-login text-uppercase fw-bold mb-2" onClick={async ()=>{
                     if(contract){
                         console.log(contract.signer);
+                        
                         await contract.endFundraiser(indexOfCampaign);
                     }
                 }}>End fundraiser</button> : null}

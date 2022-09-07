@@ -40,7 +40,7 @@ const [cookie, , removeCookie] = useCookies(['userCookie']);
             <li class="nav-item">
                 <a class="nav-link dapp-links" href="" onClick={() => {
                     removeCookie("json");
-                    if(!cookie.json) navigate('/');
+                    navigate('/');
                 }}>Logout</a>
             </li>
         </>

@@ -1,5 +1,8 @@
+/* html {
+  background-color: rgb(194, 250, 176);
+} */
+
 .dapp-background {
-    /* background-color: rgb(194, 250, 176); */
     background-color: rgb(194, 250, 176);
 } 
 .dapp-links {
@@ -40,7 +43,7 @@
     align-items: center;
   }
  
-  #login-incorrect-info, #invalid-info, #mnemonic-info, #login-invalid-info, #login-success-info {
+  #login-incorrect-info, #invalid-info, #mnemonic-info, #login-invalid-info, #login-success-info, #create-campaign-success, #create-campaign-error, #campaign-donate-success, #campaign-donate-error {
     display: none;
   }
   
@@ -92,3 +95,20 @@
     height: 200px;
   }
 
+#guest-section {
+  padding-bottom: 70px;
+  /* display: flex; */
+
+}
+
+#no-campaign-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 210px;
+  background-color: rgb(222, 179, 247);
+}
+
+#auth-home-page {
+  padding-bottom: 44%;
+}
